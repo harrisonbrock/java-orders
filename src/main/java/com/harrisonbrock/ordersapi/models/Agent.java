@@ -3,6 +3,7 @@ package com.harrisonbrock.ordersapi.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -28,4 +29,7 @@ public class Agent {
 
     @Column(name ="country")
     private String country;
+
+    @OneToMany(mappedBy = "agent")
+    private Set<Customer> customers;
 }
