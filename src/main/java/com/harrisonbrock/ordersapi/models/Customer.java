@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -49,4 +50,11 @@ public class Customer {
     @JoinColumn(name = "agentcode")
     @JsonIgnore
     private Agent agent;
+
+    @OneToMany(mappedBy = "customer")
+    @JsonIgnore
+    private Set<Order> orders;
+
+    public Customer() {
+    }
 }

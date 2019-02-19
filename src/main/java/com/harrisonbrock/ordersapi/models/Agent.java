@@ -1,5 +1,6 @@
 package com.harrisonbrock.ordersapi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -32,4 +33,9 @@ public class Agent {
 
     @OneToMany(mappedBy = "agent")
     private Set<Customer> customers;
+
+    @OneToMany(mappedBy = "agent")
+    private Set<Order> orders;
+
+
 }
