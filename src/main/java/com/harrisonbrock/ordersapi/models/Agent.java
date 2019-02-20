@@ -31,11 +31,4 @@ public class Agent {
     @Column(name ="country")
     private String country;
 
-    @OneToMany(mappedBy = "agent")
-    private Set<Customer> customers;
-
-    @OneToMany(mappedBy = "agent")
-    private Set<Order> orders;
-
-
 }
