@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "agents",produces = MediaType.APPLICATION_JSON_VALUE)
 public class AgentController {
 
     private final AgentRepository repository;
@@ -18,9 +18,14 @@ public class AgentController {
         this.repository = repository;
     }
 
-    @GetMapping("/agents")
-    public List<Object[]> getAllAgent(){
+    @GetMapping()
+    public List<Object[]> getAgentAndCustomers(){
         return repository.getAgentsAndCustomers();
+    }
+
+    @GetMapping("/orders")
+    public List<Object[]> getAgentAndOrders() {
+        return repository.getAgentsAndOrders();
     }
 
 }
